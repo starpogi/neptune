@@ -1,5 +1,7 @@
 # Neptune
 
+![UI](https://i.imgur.com/jyJCQAw.png)
+
 Aquarium server that monitors the overall health of a freshwater tank. 
 
 ## Requirements
