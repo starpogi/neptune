@@ -24,5 +24,5 @@ pip install -r requirements.txt
 - Electrical Subsystems Statuses
 - Data Metrics
 - UI
-- IP7-Rated Industrial Controllers
+- IP4-Rated (Water Splash Protection) Industrial Controllers
 
