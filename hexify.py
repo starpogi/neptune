@@ -13,7 +13,7 @@ class RGB:
                             format(self.b, '02x'))
 
 
-def make_gradient(from_hex, to_hex, ticks=0):
+def linear_interpolate(from_hex, to_hex, ticks=0):
     assert len(from_hex) == 7
     assert from_hex[0] == "#"
     from_rgb = RGB(
@@ -49,5 +49,5 @@ def make_gradient(from_hex, to_hex, ticks=0):
     return gradient_map
 
 
-l = make_gradient("#ffcc00", "#ffffff", ticks=29)
+l = linear_interpolate("#ffcc00", "#ffffff", ticks=29)
 print([j.to_hex_code() for j in l])
