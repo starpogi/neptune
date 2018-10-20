@@ -8,7 +8,7 @@ regions = [
     Region(9, 9, thermistor.Temperature(1.0)),
 ]
 chevy = Aquarium(10, 10, temperature_regions=regions)
-print(chevy.temperature_map.regions)
+# print(chevy.temperature_map.regions)
 # def linear_interpolate(from_hex, to_hex, ticks=0):
 #     assert len(from_hex) == 7
 #     assert from_hex[0] == "#"

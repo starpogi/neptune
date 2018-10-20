@@ -1,4 +1,4 @@
-from typing import List, Type, Dict, Optional
+from typing import List, Type, Dict, Optional, Union
 from models.devices import Sensor, BaseMeasurement
 from controllers.interpolations import rectilinear
 
@@ -6,7 +6,7 @@ from controllers.interpolations import rectilinear
 class Region:
 
     def __init__(self, x: int = 0, y: int = 0,
-                 value: Type[BaseMeasurement] = None):
+                 value: Union[BaseMeasurement, Type[BaseMeasurement]] = None):
         self.value = value
         self.x = x
         self.y = y
@@ -29,29 +29,38 @@ class RegionMap:
         self.height = height
         self.alias = alias or "RegionMap"
         self.interpolation = interpolation
-        self.regions = [[Region()] * width] * height
-        self._build_region_map(defined_regions)
+        self.regions = self._build_region_map(defined_regions)
+        print(self.regions)
 
-    def _build_region_map(self, defined_regions):
+    def _build_region_map(self, defined_regions) -> List[List[Region]]:
         """
         Builds the rest of the regions even with partial sectors. Sets the
         region map with a complete map, taking into account gaps.
         """
         defined_regions = defined_regions or []
-        # measurement_type = BaseMeasurement
+        measurement_type = BaseMeasurement
 
+        # Assume that every degined region has the same Measurement Type
+        if defined_regions:
+            measurement_type = defined_regions[0].value.__class__
+
+        regions = []
+        # Normalize all regions with the correct coordinates
+        for i in range(self.height):
+            row = []
+
+            for j in range(self.width):
+                row.append(Region(j, i, measurement_type(0.0)))
+
+            regions.append(row)
+
+        # Add the known/defined regions
         for defined_region in defined_regions:
             x = defined_region.x
             y = defined_region.y
-            self.regions[y][x] = defined_region
-            # measurement_type = defined_region.value.__class__
+            regions[y][x] = defined_region
 
-        # Normalize all regions with the correct coordinates
-        for i in range(self.height):
-            for j in range(self.width):
-                print(i, j)
-                self.regions[i][j].x = j
-                self.regions[i][j].y = i
+        return regions
 
     def __repr__(self):
         return "<%s (%s x %s)>" % (
