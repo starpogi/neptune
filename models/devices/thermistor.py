@@ -7,8 +7,13 @@ class Probe(Sensor):
 
 class Temperature(BaseMeasurement):
 
-    def __init__(self, value: float = 0.0):
-        self.value = value
+    def __init__(self, value: float = 0.0, **kwargs):
+        super(Temperature, self).__init__(value, **kwargs)
+        self.unit: str = kwargs.get('unit', 'C')
+        self.value = self.celsius
+
+        if self.unit == 'F':
+            self.value = self.farenheit
 
     @property
     def farenheit(self) -> float:
@@ -17,3 +22,6 @@ class Temperature(BaseMeasurement):
     @property
     def celsius(self) -> float:
         return self.value
+
+    def __repr__(self):
+        return "%s %s" % (self.value, self.unit)

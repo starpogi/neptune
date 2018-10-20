@@ -1,8 +1,11 @@
 # Neptune
+----------------------
+by Javier Onglao
+
 
 ![UI](https://i.imgur.com/jyJCQAw.png)
 
-Aquarium server that monitors the overall health of a freshwater tank. 
+Aquarium server that monitors the overall health of a freshwater tank.
 
 ## Requirements
 at least Python 3.6
@@ -25,4 +28,3 @@ pip install -r requirements.txt
 - Data Metrics
 - UI
 - IP4-Rated (Water Splash Protection) Industrial Controllers
-

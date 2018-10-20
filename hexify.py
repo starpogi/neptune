@@ -1,26 +1,14 @@
-from typing import Type, Dict
-from models.devices import thermistor, phmeter, Sensor
+from models.devices import thermistor, phmeter, Sensor, BaseMeasurement
+from models.systems import Aquarium
+from models.regions import Region
 
 
-class AquariumRegion:
-
-    def __init__(self, temperature: float, x: int = 0, y: int = 0):
-        self.temperature = thermistor.Temperature(value=temperature)
-        self.x = x
-        self.y = y
-
-
-class Aquarium:
-
-    def __init__(self, width: int, height: int):
-        self.width = width
-        self.height = height
-        self.sensors: Dict[str, Type[Sensor]] = {}
-
-    def add_sensor(self, id: str, sensor: Sensor):
-        pass
-
-
+regions = [
+    Region(0, 0, thermistor.Temperature(0.0)),
+    Region(9, 9, thermistor.Temperature(1.0)),
+]
+chevy = Aquarium(10, 10, temperature_regions=regions)
+print(chevy.temperature_map.regions)
 # def linear_interpolate(from_hex, to_hex, ticks=0):
 #     assert len(from_hex) == 7
 #     assert from_hex[0] == "#"
