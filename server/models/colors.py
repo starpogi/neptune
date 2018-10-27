@@ -1,7 +1,8 @@
+
 class Color:
 
-    def __init__(self, red: float = 0.0, green: float = 0.0,
-                 blue: float = 0.0):
+    def __init__(self, red: float = 0.0,
+                 green: float = 0.0, blue: float = 0.0):
         self.red = red
         self.green = green
         self.blue = blue

@@ -1,6 +1,7 @@
 from typing import List, Type, Dict, Optional
-from models.devices import Sensor, BaseMeasurement
-from models.regions import Region, RegionMap
+
+from server.models.devices import Sensor, BaseMeasurement
+from server.models.regions import Region, RegionMap
 
 
 class Aquarium:
@@ -14,3 +15,8 @@ class Aquarium:
         self.temperature_map = RegionMap(width, height,
                                          defined_regions=temperature_regions,
                                          alias="TemperatureMap")
+        # Build the Color Map with a Color Chart that corresponds to
+        # temperatures.
+        # self.color_map = RegionMap(width, height,
+        #                            defined_regions=temperature_regions,
+        #                            alias="ColorMap")

@@ -1,11 +1,8 @@
 # Neptune
-----------------------
-by Javier Onglao
-
-
-![UI](https://i.imgur.com/jyJCQAw.png)
 
 Aquarium server that monitors the overall health of a freshwater tank.
+
+![UI](https://i.imgur.com/jyJCQAw.png)
 
 ## Requirements
 at least Python 3.6
