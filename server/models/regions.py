@@ -2,6 +2,7 @@ from typing import List, Type, Dict, Optional, Union
 
 from server.models.devices import Sensor, BaseMeasurement
 from server.controllers.interpolations import RectilinearInterpolation
+from server.controllers.interpolations import rectilinear
 
 
 class Region:
@@ -16,7 +17,7 @@ class Region:
         self.y = y
 
     def __repr__(self):
-        return "<Region (%s, %s): %s>" % (
+        return "<Region (%s, %s): %10s>" % (
             self.x,
             self.y,
             self.value
@@ -42,7 +43,7 @@ class RegionMap:
         self.default_value = default_value
         self.matrix = self._build_matrix(defined_regions)
 
-    def interpolate(self, method: Type[RectilinearInterpolation]):
+    def interpolate(self, method: Type[RectilinearInterpolation] = None):
         """
         Perform interpolation on the matrix using the `defined_regions` as
         reference points for a rectilinear interpolation. To add a reference
@@ -50,7 +51,24 @@ class RegionMap:
         and then `.interpolate` invoked to recaculate the matrix with the new
         reference points.
         """
-        pass
+        method = method or rectilinear.Bilinear
+        # TODO: Dynamic sensor placement
+        # TODO: What to do if there are more sensors and how to build
+        # interpolation around it.
+        p1 = self.matrix[0][0].value.value
+        p2 = self.matrix[0][self.width - 1].value.value
+        p3 = self.matrix[self.length - 1][0].value.value
+        p4 = self.matrix[self.length - 1][self.width - 1].value.value
+
+        interpolate = method(x1=0, y1=0,
+                             x2=self.width - 1, y2=0,
+                             x3=0, y3=self.length - 1,
+                             x4=self.width - 1, y4=self.length - 1,
+                             p1=p1, p2=p2, p3=p3, p4=p4)
+
+        for y in range(self.length):
+            for x in range(self.width):
+                self.matrix[y][x].value.value = interpolate.compute(x, y)
 
     def _build_matrix(self, defined_regions) -> List[List[Region]]:
         """

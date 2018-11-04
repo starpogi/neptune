@@ -15,7 +15,7 @@ class Temperature(BaseMeasurement):
             'K': self.kelvin
         }
 
-        self.unit = units.get(unit, self.celsius)
+        self.unit = unit
 
     @property
     def farenheit(self) -> float:

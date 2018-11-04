@@ -14,7 +14,14 @@ class RectilinearInterpolation:
     def __init__(self, x1: float = 0.0, x2: float = 0.0,
                  x3: float = 0.0, x4: float = 0.0,
                  y1: float = 0.0, y2: float = 0.0,
-                 y3: float = 0.0, y4: float = 0.0):
+                 y3: float = 0.0, y4: float = 0.0,
+                 p1: float = 0.0, p2: float = 0.0,
+                 p3: float = 0.0, p4: float = 0.0):
+        self.p1 = p1
+        self.p2 = p2
+        self.p3 = p3
+        self.p4 = p4
+
         self.x1 = x1
         self.x2 = x2
         self.x3 = x3

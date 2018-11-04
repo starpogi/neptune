@@ -12,4 +12,4 @@ class BaseMeasurement:
         self.value = value
 
     def __repr__(self):
-        return "%s" % self.value
+        return "%010.4f" % self.value
