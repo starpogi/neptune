@@ -78,6 +78,7 @@ class RegionMap:
         """
         defined_regions = defined_regions or []
         measurement_type = BaseMeasurement
+        kwargs: dict = {}
 
         # Assume that every degined region has the same Measurement Type
         if defined_regions:

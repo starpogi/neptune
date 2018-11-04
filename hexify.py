@@ -9,10 +9,10 @@ import pprint
 pp = pprint.PrettyPrinter(width=150, compact=True)
 
 regions = [
-    Region(0, 0, thermistor.Temperature(4.0)),
-    Region(4, 0, thermistor.Temperature(0.0)),
-    Region(0, 4, thermistor.Temperature(0.0)),
-    Region(4, 4, thermistor.Temperature(0.0))
+    Region(0, 0, thermistor.Temperature(4.0, unit="C")),
+    Region(4, 0, thermistor.Temperature(0.0, unit="C")),
+    Region(0, 4, thermistor.Temperature(0.0, unit="C")),
+    Region(4, 4, thermistor.Temperature(0.0, unit="C"))
 ]
 tank = Aquarium(5, 5, temperature_regions=regions)
 tank.temperature_map.interpolate()
