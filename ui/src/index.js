@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { IoIosThermometer } from 'react-icons/io'
 
 import { Button } from 'evergreen-ui'
+import Aquarium from './Components/Aquarium'
 
 
 ReactDOM.render(
-  <Button>I am using 🌲 Evergreen!</Button>,
+  <div>
+    <Button>Hello <IoIosThermometer /></Button>
+    <Aquarium />
+  </div>,
   document.getElementById('root')
 )
 
