@@ -5,12 +5,10 @@
   background-size: 2em 2em;
   box-shadow: 0 0 0 0.1em hsla(0,0%,0%,.2);
   height: 34em;
-  left: 30%;
   margin: -7.5em;
-  padding: 6em 6em 36em 5em;
+  padding: 6em 6em 3em 5em;
   position: absolute;
-  top: 30%;
-  width: 40em;
+  width: 29em;
   -webkit-transform: rotateX(45deg) rotateZ(45deg);
   -webkit-transform-style: preserve-3d;
 }
