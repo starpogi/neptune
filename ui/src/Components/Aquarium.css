@@ -1,6 +1,6 @@
 .perspective {
-  /* background-color: hsla(221, 100%, 50%, 0.35); */
-  background-color: hsla(0,0%,0%,.2);
+  background-color: hsla(221, 100%, 50%, 0.35);
+  /* background-color: hsla(0,0%,0%,.2); */
   /* background-image: -webkit-linear-gradient(hsla(0,0%,0%,.1) 2.5%, transparent 2.5%, transparent 97.5%, hsla(0,0%,0%,.1) 97.5%), -webkit-linear-gradient(left, hsla(0,0%,0%,.1) 2.5%, transparent 2.5%, transparent 97.5%, hsla(0,0%,0%,.1) 97.5%); */
   background-size: 2em 2em;
   box-shadow: 0 0 0 0.1em hsla(0,0%,0%,.2);
@@ -55,45 +55,3 @@
 .cube:hover {
     -webkit-animation: wave 2s ease-in-out infinite;
 }
-
-/* Alternate Colour */
-/* .cube:nth-child(even) {
-    background-color: #fc6;
-}
-.cube:nth-child(even):after {
-    background-color: #eb5;
-}
-.cube:nth-child(even):before {
-    background-color: #da4;
-}
-/* Animation */
-/* @-webkit-keyframes wave {
-    50% { -webkit-transform: translateZ(4.5em); }
-}
-.cube:nth-child(1) {
-    -webkit-animation: wave 2s ease-in-out infinite;
-}
-.cube:nth-child(2) {
-    -webkit-animation: wave 2s .2s ease-in-out infinite;
-}
-.cube:nth-child(3) {
-    -webkit-animation: wave 2s .4s ease-in-out infinite;
-}
-.cube:nth-child(4) {
-    -webkit-animation: wave 2s .6s ease-in-out infinite;
-}
-.cube:nth-child(5) {
-    -webkit-animation: wave 2s .8s ease-in-out infinite;
-}
-.cube:nth-child(6) {
-    -webkit-animation: wave 2s 1s ease-in-out infinite;
-}
-.cube:nth-child(7) {
-    -webkit-animation: wave 2s 1.2s ease-in-out infinite;
-}
-.cube:nth-child(8) {
-    -webkit-animation: wave 2s 1.4s ease-in-out infinite;
-}
-.cube:nth-child(9) {
-    -webkit-animation: wave 2s 1.6s ease-in-out infinite;
-}​  */

@@ -6,11 +6,19 @@ import { IoIosThermometer } from 'react-icons/io'
 import { Button } from 'evergreen-ui'
 import Aquarium from './Components/Aquarium'
 
+import { LineChart, Line } from 'recharts';
+
+
+const data = [
+    { name: 142, uv: 36.3 },
+    { name: 196, uv: 70.3 },
+];
 
 ReactDOM.render(
   <div>
-    <Button>Hello <IoIosThermometer /></Button>
-    <Aquarium />
+    <LineChart width={500} height={500} data={data}>
+      <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+    </LineChart>
   </div>,
   document.getElementById('root')
 )
